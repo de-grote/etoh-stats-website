@@ -1,0 +1,91 @@
+.Easy_bg {
+    background: #75F347;
+    color: #000000
+}
+
+.Medium_bg {
+    background: #FFFE00;
+    color: #000000
+}
+
+.Hard_bg {
+    background: #FD7C00;
+    color: #000000
+}
+
+.Difficult_bg {
+    background: #FF3232;
+    color: #000000
+}
+
+.Challenging_bg {
+    background: #A00000;
+    color: #000000
+}
+
+.Intense_bg {
+    background: #19232D;
+    color: #FFFFFF;
+}
+
+.Remorseless_bg {
+    background: #C800C8;
+    color: #000000
+}
+
+.Insane_bg {
+    background: #0000FF;
+    color: #FFFFFF;
+}
+
+.Extreme_bg {
+    background: #0389FF;
+    color: #000000
+}
+
+.Terrifying_bg {
+    background: #00FFFF;
+    color: #000000
+}
+
+.Catastrophic_bg {
+    background: #FFFFFF;
+    color: #000000
+}
+
+.beaten_true {
+    background: darkgreen;
+}
+
+.beaten_false {
+    background: #401616;
+}
+
+table {
+	margin: 20px 10px;
+	border-radius: 10px;
+	display: inline-table;
+	border-collapse: separate; 
+	border-spacing: 1px;
+}
+
+caption {
+	caption-side: top;
+	text-align: center;
+	font-size: 1.5em;
+	font-weight: bold;
+	background: #1e222d;
+	margin: 8px;
+	border-radius: 7px;
+}
+
+td, tbody, tr, th {
+	border-radius: 5px;
+	background: #1e222d;
+}
+
+th {
+	top: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+}

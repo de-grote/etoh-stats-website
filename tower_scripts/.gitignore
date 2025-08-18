@@ -1,0 +1,6 @@
+credentials.json
+venv/
+etoh.txt
+legacy.txt
+difficulty.txt
+queries.sql
