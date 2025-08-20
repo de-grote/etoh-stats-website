@@ -2,9 +2,11 @@ use dioxus::prelude::*;
 
 use crate::{
     api::{Difficulty, Realm, Tower},
-    components::{ClearTimeTable, DataTable},
+    components::{ClearTimeTable, DataTable, Scrollable},
     server,
 };
+
+const TABLE_CSS: Asset = asset!("/assets/styling/datatable.css");
 
 #[component]
 pub fn Stats(name: String) -> Element {
@@ -14,6 +16,8 @@ pub fn Stats(name: String) -> Element {
     let realms = use_server_future(move || get_realms())?().unwrap().unwrap();
 
     rsx! {
+        document::Link { rel: "stylesheet", href: TABLE_CSS }
+
         div {
             for realm in realms {
                 DataTable {
@@ -23,6 +27,7 @@ pub fn Stats(name: String) -> Element {
             }
         }
         div {
+            class: "difficulty",
             for diff in (1..=11).flat_map(|x| Difficulty::new(x as f64)) {
                 DataTable {
                     caption: diff.to_string(),
@@ -30,7 +35,8 @@ pub fn Stats(name: String) -> Element {
                  }
             }
         }
-        div {
+        Scrollable {
+            height: 500,
             ClearTimeTable { towers: towers }
         }
     }

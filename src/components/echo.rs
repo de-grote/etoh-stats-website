@@ -1,7 +1,5 @@
 use dioxus::prelude::*;
 
-const ECHO_CSS: Asset = asset!("/assets/styling/echo.css");
-
 #[component]
 pub fn Echo() -> Element {
     let mut response = use_signal(|| String::new());
@@ -14,8 +12,6 @@ pub fn Echo() -> Element {
     };
 
     rsx! {
-        document::Link { rel: "stylesheet", href: ECHO_CSS }
-
         div {
             id: "echo",
             h4 { "Check EToH Stats" }

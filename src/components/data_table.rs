@@ -3,15 +3,20 @@ use dioxus::prelude::*;
 use crate::api::{Difficulty, Tower};
 use chrono::Local;
 
-const TABLE_CSS: Asset = asset!("/assets/styling/datatable.css");
-
 #[component]
 pub fn DataTable(caption: String, towers: Vec<Tower>) -> Element {
+    let beat_all = if towers.iter().all(|t| t.time.is_some()) {
+        "beaten_true"
+    } else {
+        ""
+    };
+    
     rsx! {
-        document::Link { rel: "stylesheet", href: TABLE_CSS }
-
         table {
-            caption { b { "{caption}" } }
+            caption {
+                class: beat_all,
+                b { "{caption}" }
+            }
             tr {
                 th { "Tower Name" }
                 th { "Tower Difficulty" }
@@ -36,8 +41,6 @@ pub fn ClearTimeTable(towers: Vec<Tower>) -> Element {
     let local = Local {};
 
     rsx! {
-        document::Link { rel: "stylesheet", href: TABLE_CSS }
-
         table {
             caption { b { "Tower Completions" } }
             tr {
