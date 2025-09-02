@@ -63,3 +63,24 @@ pub fn ClearTimeTable(towers: Vec<Tower>) -> Element {
         }
     }
 }
+
+#[component]
+pub fn UncompletedTowerTable(towers: Vec<Tower>) -> Element {
+    rsx! {
+        table {
+            caption { b { "Uncompleted Towers" } }
+            tr {
+                th { "Tower Name" }
+                th { "Tower Difficulty" }
+                th { "Realm" }
+            }
+            for tower in towers {
+                tr {
+                    td { span { { tower.acronym } } }
+                    td { class: "{Difficulty::new(tower.difficulty).unwrap().to_string()}_bg", span { "{tower.difficulty:.2}" } }
+                    td { "{ tower.realm }" }
+                }
+            }
+        }
+    }
+}

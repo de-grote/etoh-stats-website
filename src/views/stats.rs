@@ -2,7 +2,7 @@ use dioxus::prelude::*;
 
 use crate::{
     api::{Difficulty, Realm, Tower},
-    components::{ClearTimeTable, DataTable, Scrollable},
+    components::{ClearTimeTable, DataTable, Scrollable, UncompletedTowerTable},
     server,
 };
 
@@ -37,7 +37,11 @@ pub fn Stats(name: String) -> Element {
         }
         Scrollable {
             height: 500,
-            ClearTimeTable { towers: towers }
+            ClearTimeTable { towers: towers.clone() }
+        }
+        Scrollable { 
+            height: 500,
+            UncompletedTowerTable { towers: sorted_by_difficulty(towers.iter().filter(|t| t.time.is_none()).cloned().collect::<Vec<_>>()) }
         }
     }
 }
