@@ -5,6 +5,8 @@
 # HTML title tag content
 title = "etoh-stats-website"
 
+base_path = "etoh-stats-website"
+
 # include `assets` in web platform
 [web.resource]
 

@@ -24,7 +24,7 @@ pub fn DataTable(caption: String, towers: Vec<Tower>) -> Element {
             for tower in towers {
                 tr {
                     key: "{caption}{tower.acronym}",
-                    td { class: "beaten_{tower.time.is_some()}", span { {tower.acronym} } }
+                    td { class: "beaten_{tower.time.is_some()}", span { {tower.acronym.clone()} } }
                     td { class: "{Difficulty::new(tower.difficulty).unwrap().to_string()}_bg", span { "{tower.difficulty:.2}" } }
                 }
             }
@@ -52,9 +52,9 @@ pub fn ClearTimeTable(towers: Vec<Tower>) -> Element {
             }
             for (i, tower) in towers.into_iter().enumerate() {
                 tr {
-                    key: "completion{tower.acronym}",
+                    key: "completion{tower.acronym.clone()}",
                     td { "{i + 1}" }
-                    td { span { {tower.acronym} } }
+                    td { span { {tower.acronym.clone()} } }
                     td { class: "{Difficulty::new(tower.difficulty).unwrap().to_string()}_bg", span { "{tower.difficulty:.2}" } }
                     td { "{tower.realm}" }
                     td { "{tower.time.unwrap().and_utc().with_timezone(&local).format(format_string)}" }
