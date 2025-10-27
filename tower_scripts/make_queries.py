@@ -1,4 +1,5 @@
 area_colors = {
+    "#F9E7FF": "Ring 0: Purgatorio",
     "#F3F3F3": "Ring 1: Limbo",
     "#A0D131": "Forgotten Ridge",
     "#666666": "Ring 2: Desire",
